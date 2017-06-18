@@ -1,7 +1,9 @@
 package week3.day1;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 
 import io.appium.java_client.android.AndroidDriver;
 
@@ -13,10 +15,10 @@ public class LearnRotate {
 
 	/**
 	 * @param args
-	 * @throws MalformedURLException 
 	 * @throws InterruptedException 
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) throws MalformedURLException, InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
 		// TODO Auto-generated method stub
 		
 		DesiredCapabilities dc = new DesiredCapabilities();
@@ -37,6 +39,9 @@ public class LearnRotate {
 		//driver.rotate(ScreenOrientation.LANDSCAPE);
 		driver.rotate(ScreenOrientation.PORTRAIT);
 		
+		Runtime.getRuntime().exec("adb shell ");	
+		
+		driver.runAppInBackground(Duration.ofSeconds(5)) ;
 		
 		
 		
